@@ -48,16 +48,19 @@ const updateTime = async () => {
 const startQuiz = async () => {
     toggleHidden('#start-quiz')
     toggleHidden('#quiz-questions')
-    // First add start with 0 index question obj
+    // First question add start with 0 index obj
     addQuestions(QUESTIONS[qIndex])
     time += 75
     updateTime()
     // Timer
     const quizInterval = setInterval(function () {
-        if (time > 0) {
+        if (time > 0 && qIndex < 4) {
             time--
             updateTime()
-        } else {
+        } else if (qIndex === 4) {
+            clearInterval(quizInterval)
+        }
+        else {
             time = 0
             clearInterval(quizInterval)
             updateTime()
@@ -93,9 +96,10 @@ const answerFormHandler = async (e) => {
         addQuestions(QUESTIONS[qIndex])
     } else if (submitted === asked.answer() && qIndex === 3) {
         // This triggers if all questions answered 
+        qIndex++
         showQuestionResult(true)
-        // To Do display score page
-        alert("done with quiz tmp")
+        toggleHidden('#quiz-questions')
+        toggleHidden('#quiz-finish')
 
     } else if (time <= 3) {
         time = 0
@@ -120,6 +124,63 @@ const showQuestionResult = async (x) => {
         resultsElem.textContent = 'Incorrect!'
     }
 }
+// Submit initials and redirect func 
+const submitScore = async () => {
+    const initials = document.getElementById('initials')
+    if(time > 74 && time !== 1337) {
+        alert("Cheater! Try harder :)")
+        return
+    }
+    if(initials.value.length > 20) {
+        alert("Sorry 20 Characters Max Limit")
+        initials.value = ""
+        return
+    } else if (initials.value) {
+        localStorageHandler(initials.value)
+    }  else {
+        alert("Please enter a value")
+        return
+    }
+    return
+}
+
+// const localStorageHandler = async () => {
+//     if(localStorage.scores) {
+//         let oldScores = JSON.parse(localStorage.getItem('scores'))
+//         let idValues = Object.values(oldScores)
+//         let highestId = Math.max(...idValues)
+//         highestId++
+//         let new_scores = {highestId, properties:{name: "name",score: "time" }}
+//         let merged_scores = {...oldScores, ...new_scores}
+//         let scoreString = JSON.stringify(merged_scores)
+//         localStorage.setItem('scores', scoreString)
+
+//     } else {
+//         let new_scores = {test:{name: "name",score: "time" }}
+//         let scoreString = JSON.stringify(new_scores)
+//         localStorage.setItem('scores', scoreString)
+//     } 
+// }
+
+const localStorageHandler = async (name) => {
+    let scoreArr = []
+    scoreArr.push(name)
+    scoreArr.push(time)
+    if(localStorage.scores) {
+        let old_scores = JSON.parse(localStorage.scores)
+        old_scores.push(scoreArr)
+        let scoreString = JSON.stringify(old_scores)
+        localStorage.setItem('scores', scoreString)
+
+    } else {
+        let parentArr = []
+        parentArr.push(scoreArr)
+        let scoreString = JSON.stringify(parentArr)
+        localStorage.setItem('scores', scoreString)
+
+    } 
+}
+
 
 
 // Event listeners
@@ -128,3 +189,4 @@ let answerElems = document.querySelectorAll('.answers')
 answerElems.forEach(function (elem) {
     elem.addEventListener('click', answerFormHandler)
 })
+document.querySelector('#submit-btn').addEventListener('click', submitScore)

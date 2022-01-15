@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -15,10 +14,11 @@
             <h1>JavaScript Coding Quiz</h1>
             <h2>Time based multiple choice</h2>
         </hgroup>
+        <a href="./scores.html">View High Scores</a>
+        <div id="timer"></div>
     </header>
     <main>
         <section>
-            <div id="timer"></div>
             <button id="start-quiz">Start Quiz</button>
         </section>
 
@@ -33,6 +33,11 @@
                 <input type="button" class="answers"><br>
             </form>
             <div id="results" class="hidden"></div>
+        </section>
+        <section id="quiz-finish" class="hidden">
+            <label for="initials">Enter initials or name:</label>
+            <input id="initials" type="text">
+            <button id="submit-btn" type="submit">Submit</button>
         </section>
     </main>
     <footer>
