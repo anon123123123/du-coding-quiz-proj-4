@@ -1,34 +1,34 @@
 // Assign constants and global vars
 const Q1 = {
     id: 1,
-    question: "Question one",
-    options: ["a1", "a1-2", "a1-3", "a1-4"],
+    question: "In JavaScript what type of functions avoid blocking the event loop?",
+    options: ["Methods", "Anonymous", "Asynchronous ", "Defined"],
     answer: function () {
-        return this.options[0]
+        return this.options[1]
     }
 }
 const Q2 = {
     id: 2,
-    question: "q2 test?",
-    options: ["a2", "a2-2", "a2-3", "a2-4"],
+    question: "Why does === do in JavaScript?",
+    options: ["Compares values but not type", "Nothing == doesn't", "Assigns variables", "Compares values and type"],
     answer: function () {
-        return this.options[0]
+        return this.options[3]
     }
 }
 
 const Q3 = {
     id: 3,
-    question: "Third Question",
-    options: ["a2", "a2-2", "a2-3", "a2-4"],
+    question: "What best describes Prototypes in JavaScript?",
+    options: ["Methods on objects", "Global variables", "Inherited properties and methods", "None of the above"],
     answer: function () {
-        return this.options[0]
+        return this.options[2]
     }
 }
 
 const Q4 = {
     id: 4,
-    question: "Fourth Question",
-    options: ["a2", "a2-2", "a2-3", "a2-4"],
+    question: "What is the JavaScript engine in Chrome?",
+    options: ["V8", "SpiderMonkey", "WarpBuilder", "ChromeJSRunner"],
     answer: function () {
         return this.options[0]
     }
@@ -75,6 +75,7 @@ const startQuiz = async () => {
 const toggleHidden = async (select) => {
     document.querySelector(select).classList.toggle('hidden')
 }
+
 // Populate questions in form based on question object passed 
 const addQuestions = async (questionObj) => {
     document.querySelector('#js-question').textContent = questionObj.question
@@ -111,6 +112,7 @@ const answerFormHandler = async (e) => {
         updateTime()
     }
 }
+
 // Displays right or wrong func
 const showQuestionResult = async (x) => {
     const resultsElem = document.querySelector('#results')
@@ -124,6 +126,7 @@ const showQuestionResult = async (x) => {
         resultsElem.textContent = 'Incorrect!'
     }
 }
+
 // Submit initials and redirect func 
 const submitScore = async () => {
     const initials = document.getElementById('initials')
@@ -137,30 +140,13 @@ const submitScore = async () => {
         return
     } else if (initials.value) {
         localStorageHandler(initials.value)
+        window.location.replace('./scores.html')
     }  else {
         alert("Please enter a value")
         return
     }
     return
 }
-
-// const localStorageHandler = async () => {
-//     if(localStorage.scores) {
-//         let oldScores = JSON.parse(localStorage.getItem('scores'))
-//         let idValues = Object.values(oldScores)
-//         let highestId = Math.max(...idValues)
-//         highestId++
-//         let new_scores = {highestId, properties:{name: "name",score: "time" }}
-//         let merged_scores = {...oldScores, ...new_scores}
-//         let scoreString = JSON.stringify(merged_scores)
-//         localStorage.setItem('scores', scoreString)
-
-//     } else {
-//         let new_scores = {test:{name: "name",score: "time" }}
-//         let scoreString = JSON.stringify(new_scores)
-//         localStorage.setItem('scores', scoreString)
-//     } 
-// }
 
 const localStorageHandler = async (name) => {
     let scoreArr = []

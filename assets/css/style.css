@@ -1,3 +1,105 @@
+/* Load custom fonts */
+@font-face {
+    font-family: 'OpenSans';
+    src: url('../fonts/OpenSans-Regular.ttf');
+} 
+@font-face {
+    font-family: 'Montserrat';
+    src: url('../fonts/Montserrat-Regular.ttf');
+} 
+/* Main root CSS */
+:root {
+    font-size: 16px;
+    font-family: OpenSans, Montserrat, sans-serif, 'Times New Roman', Times, serif; 
+    --main-bg-color: hsl(0, 0%, 0%);
+    --main-txt-color: hsl(0, 0%, 98%);
+    --secondary-bg-color: hsl(235, 99%, 64%);
+    --secondary-txt-color: hsl(195, 92%, 86%);
+    --main-border-color: hsl(215, 100%, 80%);
+    --special-case-color: hsl(237, 43%, 81%);
+}
+
+/* Global */
+body {
+    margin: 0;
+    padding: 0;
+}
+
+
+/* Wide use classes style  */
+/* Header and footer */
+.banners {
+    background-color: var(--main-bg-color);
+    color: var(--main-txt-color);
+    justify-content: center;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.flex {
+    display: flex; 
+}
+
+.links {
+    position:absolute;
+    top:2rem;
+    right:5rem;
+    text-decoration: none;
+    font-size: 1.5rem;
+}
+/* Primary Containers for Quiz / results */
+.center-boxes {
+    border: black solid;
+    margin-left: auto;
+    margin-right: auto;
+    width: 35rem;
+    min-height: 35rem;
+}
+
+.center-boxes input {
+    width: 100%;
+    text-align: left;
+    font-size: 1.5rem;
+    margin-top: 2rem;
+    padding-top: 2rem;
+}
+
+.buttons {
+    /* display: inline-block; */
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+    border: none;
+    padding: 1rem 2rem;
+    text-decoration: none;
+    background: var(--main-bg-color);
+    color: var(--main-txt-color);
+    font-size: 1rem;
+    cursor: pointer;
+    text-align: center;
+}
+
+
+/* Footer style */
+.footer {
+    position: absolute;
+    bottom: 0;
+    height: 3.5rem; 
+}
+
+.footer span {
+    padding-top: 1rem;
+}
+
 .hidden {
     display: none;
+}
+
+/* Unique IDs Style */
+#start-quiz {
+    position: absolute;
+    top: 20%;
+    right: 42%;
+    font-size: 2rem;
+    width: 15rem;
 }

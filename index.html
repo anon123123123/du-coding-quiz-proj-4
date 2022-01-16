@@ -9,20 +9,20 @@
 </head>
 
 <body>
-    <header>
+    <header class="header banners flex">
         <hgroup>
             <h1>JavaScript Coding Quiz</h1>
             <h2>Time based multiple choice</h2>
         </hgroup>
-        <a href="./scores.html">View High Scores</a>
-        <div id="timer"></div>
+        <a class="links" href="./scores.html">View High Scores</a>
     </header>
     <main>
         <section>
-            <button id="start-quiz">Start Quiz</button>
+            <span id="timer"></span>
+            <button id="start-quiz" class="buttons">Start Quiz</button>
         </section>
 
-        <section id="quiz-questions" class="hidden">
+        <section id="quiz-questions" class="hidden center-boxes">
             <header>
                 <h4 id="js-question"></h4>
             </header>
@@ -37,11 +37,11 @@
         <section id="quiz-finish" class="hidden">
             <label for="initials">Enter initials or name:</label>
             <input id="initials" type="text">
-            <button id="submit-btn" type="submit">Submit</button>
+            <button id="submit-btn" type="submit" class="buttons">Submit</button>
         </section>
     </main>
-    <footer>
-
+    <footer class="footer banners flex">
+        <span>Happy Coding</span>
     </footer>
     <script src="./assets/js/script.js"></script>
 </body>
