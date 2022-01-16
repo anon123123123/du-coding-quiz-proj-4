@@ -14,15 +14,13 @@
     --main-bg-color: hsl(0, 0%, 0%);
     --main-txt-color: hsl(0, 0%, 98%);
     --secondary-bg-color: hsl(289, 100%, 17%);
-    --secondary-txt-color: hsl(195, 92%, 86%);
-    --main-border-color: hsl(215, 100%, 80%);
-    --special-case-color: hsl(237, 43%, 81%);
 }
 
 /* Global */
 body {
     margin: 0;
     padding: 0;
+    height: 100vh;
 }
 
 /* Wide use classes style  */
@@ -65,8 +63,15 @@ body {
 }
 
 .center-boxes input {
-    margin-top: 2rem;
+    margin-top: 1.5rem;
     padding-top: 2rem;
+}
+
+.center-boxes input:hover {
+    background-color: var(--main-bg-color);
+    box-shadow:  0px 33px 25px 0 #000, 
+                 0 26px 15px 0px #ccc;
+    padding: 1rem;
 }
 
 .center-boxes h4{
@@ -94,9 +99,11 @@ body {
 
 /* Footer style */
 .footer {
-    position: absolute;
+    height: 3.5rem;  
+    position: fixed;
+    padding: 10px 10px 0px 10px;
     bottom: 0;
-    height: 3.5rem; 
+   
 }
 
 .footer span {
@@ -107,7 +114,7 @@ body {
     display: none;
 }
 
-/* Unique IDs Style */
+/* Unique Styles */
 #quiz-questions {
     border: black solid .12rem;
 }
@@ -133,14 +140,24 @@ body {
     width: 80%;
 }
 
-/* Fix Links Pos on smaller screens */
+/* Fix issues on smaller screens */
 @media only screen and (max-width: 725px) {
     .links {
-        position: none;
-        display: block;
+        position: absolute;
         font-size: 1rem;
-        justify-content: center;
-        right: none;
-        top: none;
+        left: 0;
+        bottom: 10;
+    }
+    .center-boxes {
+        width: none;
+        min-width: 90%;
+        max-width: 90%;    
+} 
+.center-boxes ol{
+    width: 90%;
+}
+
+    section {
+        margin: 0;
     }
 }
