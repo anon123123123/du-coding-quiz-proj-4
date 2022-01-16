@@ -4,7 +4,7 @@ const Q1 = {
     question: "In JavaScript what type of functions avoid blocking the event loop?",
     options: ["Methods", "Anonymous", "Asynchronous ", "Defined"],
     answer: function () {
-        return this.options[1]
+        return this.options[2]
     }
 }
 const Q2 = {

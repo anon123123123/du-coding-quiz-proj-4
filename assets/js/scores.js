@@ -7,12 +7,10 @@ let sortedData;
 const addScores = async()=> {
     scoresSection.append(olElem)
     sortedData.forEach(element => {
-        let userScore = `User: ${element[0]} Score: ${element[1]}`
+        let userScore = `${element[0]} --- ${element[1]}`
         let liElem = document.createElement("li")
         olElem.append(liElem)
-        console.log(element)
-        liElem.appendChild(document.createTextNode(userScore))
-        
+        liElem.appendChild(document.createTextNode(userScore)) 
     });
 }
 

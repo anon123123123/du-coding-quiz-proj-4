@@ -13,7 +13,7 @@
     font-family: OpenSans, Montserrat, sans-serif, 'Times New Roman', Times, serif; 
     --main-bg-color: hsl(0, 0%, 0%);
     --main-txt-color: hsl(0, 0%, 98%);
-    --secondary-bg-color: hsl(235, 99%, 64%);
+    --secondary-bg-color: hsl(289, 100%, 17%);
     --secondary-txt-color: hsl(195, 92%, 86%);
     --main-border-color: hsl(215, 100%, 80%);
     --special-case-color: hsl(237, 43%, 81%);
@@ -24,7 +24,6 @@ body {
     margin: 0;
     padding: 0;
 }
-
 
 /* Wide use classes style  */
 /* Header and footer */
@@ -50,27 +49,40 @@ body {
 }
 /* Primary Containers for Quiz / results */
 .center-boxes {
-    border: black solid;
     margin-left: auto;
     margin-right: auto;
-    width: 35rem;
-    min-height: 35rem;
+    width: 40rem;
+    min-height: 30rem;
 }
 
-.center-boxes input {
+.center-boxes input, ol {
     width: 100%;
     text-align: left;
     font-size: 1.5rem;
+    background-color: var(--secondary-bg-color);
+    color: var(--main-txt-color);
+    max-width: 100%;
+}
+
+.center-boxes input {
     margin-top: 2rem;
     padding-top: 2rem;
 }
 
+.center-boxes h4{
+    text-align: left;
+    font-size: 1.5rem;
+    margin-top: 0;
+    background-color: var(--main-bg-color);
+    color: var(--main-txt-color);
+}
+
 .buttons {
-    /* display: inline-block; */
-    -ms-transform: translateY(-50%);
-    transform: translateY(-50%);
+    position: relative;
     border: none;
     padding: 1rem 2rem;
+    margin-left: 44%;
+    margin-top: 10%;
     text-decoration: none;
     background: var(--main-bg-color);
     color: var(--main-txt-color);
@@ -96,10 +108,39 @@ body {
 }
 
 /* Unique IDs Style */
+#quiz-questions {
+    border: black solid .12rem;
+}
+
 #start-quiz {
-    position: absolute;
-    top: 20%;
-    right: 42%;
+    position: relative;
+    width: 100%;
     font-size: 2rem;
     width: 15rem;
+}
+
+#submit-btn {
+    position: relative;
+    bottom: 0;
+}
+
+#initials {
+    background-color: var(--main-txt-color);
+    color: var(--main-bg-color);
+    text-align: left;
+    font-size: 1.5rem;
+    margin-top: 2rem;
+    width: 80%;
+}
+
+/* Fix Links Pos on smaller screens */
+@media only screen and (max-width: 725px) {
+    .links {
+        position: none;
+        display: block;
+        font-size: 1rem;
+        justify-content: center;
+        right: none;
+        top: none;
+    }
 }
